@@ -75,7 +75,15 @@ NOIR — украшения для тех, кто выбирает детали.
 </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+  const SUPABASE_URL = "https://oawqfoelrylhmadfllcw.supabase.co";
+const SUPABASE_KEY = "sb_publishable_n7D5STpCToom3eDX9k-Sd6Q_FAWE5vX4";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 const products=[
 {id:1,name:"RING SILVER",desc:"Минималистичное серебристое кольцо",price:590,img:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700"},
 {id:2,name:"SILVER EARRINGS",desc:"Элегантные серьги на каждый день",price:690,img:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=700"},
