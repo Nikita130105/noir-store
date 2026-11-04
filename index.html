@@ -1,152 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOIR — Jewelry</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOIR — Silver Jewelry</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0b0b0b;color:#f5f0e7;font-family:Arial,sans-serif}
-header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #29251d}
-.logo{font-size:30px;letter-spacing:7px;color:#d4b477;font-weight:bold}
-button{cursor:pointer;font:inherit}
-.cart-btn{background:none;border:1px solid #b99b60;color:#e6d2a5;padding:11px 17px;border-radius:3px}
-.hero{text-align:center;padding:90px 20px 85px;background:linear-gradient(130deg,#17130e,#080808 65%)}
-.hero small{color:#c9a96e;letter-spacing:5px}
-.hero h1{font-size:clamp(42px,10vw,76px);letter-spacing:9px;margin:20px 0}
+body{margin:0;background:#090909;color:#eee;font-family:Arial,sans-serif}
+header{padding:22px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333}
+.logo{font-size:30px;letter-spacing:8px;font-weight:bold}
+button{cursor:pointer}
+.cart-btn{background:none;color:white;border:1px solid #aaa;padding:11px 16px}
+.hero{text-align:center;padding:85px 15px;background:linear-gradient(135deg,#242424,#080808)}
+.hero small{letter-spacing:5px;color:#aaa}
+.hero h1{font-size:65px;letter-spacing:12px;margin:20px 0}
 .hero p{color:#aaa;letter-spacing:2px}
-.gold{color:#d4b477}
 .section{padding:55px 6%}
-.section h2{text-align:center;font-size:27px;letter-spacing:5px;font-weight:normal;margin-bottom:38px}
+.section h2{text-align:center;letter-spacing:5px;font-weight:normal;margin-bottom:35px}
 .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px}
-.product{background:#141414;border:1px solid #29251d;padding:15px}
-.product-art{height:210px;background:radial-gradient(circle,#4b3b25,#17130e 65%,#101010);display:flex;align-items:center;justify-content:center;font-size:75px}
-.product h3{font-size:17px;font-weight:normal;margin:18px 0 8px}
-.price{color:#d4b477;margin-bottom:16px}
-.add{width:100%;background:#c3a36a;color:#111;border:0;padding:13px;letter-spacing:1px}
-.add:active{opacity:.7}
-.about{text-align:center;background:#121212;padding:55px 20px;color:#aaa;line-height:1.8}
-.about h2{color:#d4b477;letter-spacing:5px;font-weight:normal}
-footer{text-align:center;padding:30px;color:#777;font-size:12px;letter-spacing:2px}
-.cart-panel{display:none;position:fixed;inset:0;background:#000b;z-index:5;justify-content:flex-end}
-.cart-content{background:#151515;width:min(420px,100%);height:100%;padding:25px;overflow:auto;border-left:1px solid #9d804d}
-.cart-head{display:flex;justify-content:space-between;align-items:center}
-.close{background:none;color:white;border:0;font-size:28px}
-.cart-line{display:flex;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid #333}
-.checkout{margin-top:25px;width:100%;padding:14px;background:#c3a36a;border:0}
-.total{color:#d4b477;font-size:20px}
-.note{color:#888;font-size:12px;line-height:1.6}
+.product{background:#141414;border:1px solid #303030;padding:12px}
+.product img{width:100%;height:230px;object-fit:cover;background:#222;display:block}
+.product h3{font-size:16px;font-weight:normal;margin:17px 0 8px}
+.desc{font-size:13px;color:#999;min-height:32px}
+.price{color:#ddd;margin:15px 0}
+.add{width:100%;padding:13px;background:#ddd;color:#111;border:0;letter-spacing:1px}
+.add:hover{background:#aaa}
+.about{text-align:center;background:#141414;padding:50px 20px;color:#aaa;line-height:1.8}
+.about h2{letter-spacing:5px;color:white;font-weight:normal}
+footer{text-align:center;padding:30px;color:#777;font-size:12px;letter-spacing:3px}
+.panel{display:none;position:fixed;inset:0;background:#000b;z-index:5;justify-content:flex-end}
+.content{background:#151515;width:min(420px,100%);height:100%;padding:24px;overflow:auto}
+.close{float:right;background:none;color:white;border:0;font-size:28px}
+.line{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #333;gap:10px}
+.checkout{width:100%;padding:14px;background:#ddd;border:0;margin-top:20px}
+.note{font-size:12px;color:#888;line-height:1.6}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">NOIR</div>
-  <button class="cart-btn" onclick="openCart()">КОРЗИНА (<span id="count">0</span>)</button>
+<div class="logo">NOIR</div>
+<button class="cart-btn" onclick="openCart()">BAG (<span id="count">0</span>)</button>
 </header>
 
 <section class="hero">
-  <small>JEWELRY COLLECTION</small>
-  <h1>NOIR</h1>
-  <p>ТВОЯ КРАСОТА. ТВОИ ПРАВИЛА.</p>
-  <p class="gold">Украшения с характером</p>
+<small>SILVER JEWELRY COLLECTION</small>
+<h1>NOIR</h1>
+<p>BEAUTY IN EVERY DETAIL</p>
+<p>Серебро. Минимализм. Твой стиль.</p>
 </section>
 
 <section class="section">
-  <h2>НАША КОЛЛЕКЦИЯ</h2>
-  <div class="products" id="products"></div>
+<h2>НАША КОЛЛЕКЦИЯ</h2>
+<div class="products" id="products"></div>
 </section>
 
 <section class="about">
-  <h2>ABOUT NOIR</h2>
-  <p>NOIR — детали, которые говорят за тебя.<br>
-  Минимализм, элегантность и твой неповторимый стиль.</p>
+<h2>ABOUT NOIR</h2>
+NOIR — украшения для тех, кто выбирает детали.<br>
+Минимализм, элегантность и индивидуальность.
 </section>
 
 <footer>NOIR JEWELRY · UKRAINE</footer>
 
-<div class="cart-panel" id="cart">
-  <div class="cart-content">
-    <div class="cart-head">
-      <h2 class="gold">ТВОЯ КОРЗИНА</h2>
-      <button class="close" onclick="closeCart()">×</button>
-    </div>
-    <div id="cartItems"></div>
-    <p class="total" id="total">Итого: 0 ₴</p>
-    <button class="checkout" onclick="checkout()">ОФОРМИТЬ ЗАКАЗ</button>
-    <p class="note">Пока это демонстрационная версия. Заказы ещё не отправляются продавцу, а оплата не подключена.</p>
-  </div>
+<div class="panel" id="panel">
+<div class="content">
+<button class="close" onclick="closeCart()">×</button>
+<h2>ТВОЯ КОРЗИНА</h2>
+<div id="items"></div>
+<h3 id="total">Итого: 0 ₴</h3>
+<button class="checkout" onclick="checkout()">ОФОРМИТЬ ЗАКАЗ</button>
+<p class="note">Демонстрационная версия. Отправка заказов и оплата пока не подключены.</p>
+</div>
 </div>
 
 <script>
-const products = [
-  {id:1,name:"Кольцо ELEGANCE",price:590,icon:"💍"},
-  {id:2,name:"Серьги NOIR",price:690,icon:"✨"},
-  {id:3,name:"Кольцо MINIMAL",price:490,icon:"💎"},
-  {id:4,name:"Браслет GOLD",price:790,icon:"🌙"}
+const products=[
+{id:1,name:"RING SILVER",desc:"Минималистичное серебристое кольцо",price:590,img:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700"},
+{id:2,name:"SILVER EARRINGS",desc:"Элегантные серьги на каждый день",price:690,img:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=700"},
+{id:3,name:"NOIR NECKLACE",desc:"Изящное украшение на шею",price:790,img:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=700"},
+{id:4,name:"MINIMAL BRACELET",desc:"Лаконичный серебристый браслет",price:650,img:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=700"}
 ];
 
-let cart = JSON.parse(localStorage.getItem("noirCart") || "[]");
+let cart=JSON.parse(localStorage.getItem("noirCart")||"[]");
 
-function renderProducts(){
-  document.getElementById("products").innerHTML = products.map(p=>`
-    <div class="product">
-      <div class="product-art">${p.icon}</div>
-      <h3>${p.name}</h3>
-      <div class="price">${p.price} ₴</div>
-      <button class="add" onclick="addToCart(${p.id})">ДОБАВИТЬ В КОРЗИНУ</button>
-    </div>
-  `).join("");
+function render(){
+document.getElementById("products").innerHTML=products.map(p=>`
+<div class="product">
+<img src="${p.img}" alt="${p.name}" loading="lazy">
+<h3>${p.name}</h3>
+<div class="desc">${p.desc}</div>
+<div class="price">${p.price} ₴</div>
+<button class="add" onclick="add(${p.id})">ДОБАВИТЬ В КОРЗИНУ</button>
+</div>`).join("");
 }
 
-function saveCart(){
-  localStorage.setItem("noirCart",JSON.stringify(cart));
-  updateCart();
+function save(){
+localStorage.setItem("noirCart",JSON.stringify(cart));
+update();
 }
 
-function addToCart(id){
-  const item=cart.find(x=>x.id===id);
-  if(item)item.qty++;
-  else cart.push({id,qty:1});
-  saveCart();
+function add(id){
+let item=cart.find(x=>x.id===id);
+if(item)item.qty++;
+else cart.push({id,qty:1});
+save();
 }
 
-function updateCart(){
-  document.getElementById("count").textContent=
-    cart.reduce((s,x)=>s+x.qty,0);
-
-  let total=0;
-  document.getElementById("cartItems").innerHTML=cart.map(x=>{
-    const p=products.find(y=>y.id===x.id);
-    total+=p.price*x.qty;
-    return `<div class="cart-line">
-      <span>${p.name} × ${x.qty}</span>
-      <span>${p.price*x.qty} ₴</span>
-    </div>`;
-  }).join("") || "<p>Корзина пока пуста.</p>";
-
-  document.getElementById("total").textContent="Итого: "+total+" ₴";
+function update(){
+document.getElementById("count").textContent=cart.reduce((s,x)=>s+x.qty,0);
+let total=0;
+document.getElementById("items").innerHTML=cart.map(x=>{
+let p=products.find(y=>y.id===x.id);
+total+=p.price*x.qty;
+return `<div class="line"><span>${p.name} × ${x.qty}</span><span>${p.price*x.qty} ₴</span></div>`;
+}).join("")||"<p>Корзина пуста</p>";
+document.getElementById("total").textContent="Итого: "+total+" ₴";
 }
 
 function openCart(){
-  document.getElementById("cart").style.display="flex";
-  updateCart();
+document.getElementById("panel").style.display="flex";
+update();
 }
-
 function closeCart(){
-  document.getElementById("cart").style.display="none";
+document.getElementById("panel").style.display="none";
 }
-
 function checkout(){
-  if(cart.length===0){
-    alert("Сначала добавь товар в корзину.");
-    return;
-  }
-  alert("Это пока тестовая версия магазина. Следующим этапом подключим настоящую отправку заказов.");
+if(!cart.length){alert("Корзина пуста");return;}
+alert("Это тестовая версия. Подключение настоящих заказов будет следующим этапом.");
 }
 
-renderProducts();
-updateCart();
+render();
+update();
 </script>
 </body>
 </html>
